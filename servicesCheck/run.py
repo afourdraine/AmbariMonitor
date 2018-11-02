@@ -1,3 +1,4 @@
+#run
 from servicesCheck.var import *
 from servicesCheck.funtion import *
 
