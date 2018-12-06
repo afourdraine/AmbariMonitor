@@ -23,7 +23,7 @@ while batchStatus == "SCHEDULED":
 
         if item["Requests"]["request_status"] == "COMPLETED" and item["Requests"]["request_context"] not in final:
 
-            final.update({item["Requests"]["request_context"] : item["Requests"]["request_status"]})
+            final.update({item["Requests"]["request_context"]: item["Requests"]["request_status"]})
 
             total_test += 1
 
