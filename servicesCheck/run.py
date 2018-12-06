@@ -1,5 +1,5 @@
 #run
-from servicesCheck.var import *
+from var import *
 from servicesCheck.funtion import *
 
 serviceCheck = runServicesCheck(nodeName, clusterName, auth_values)
