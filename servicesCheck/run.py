@@ -38,11 +38,11 @@ while batchStatus == "SCHEDULED":
 if failed:
     print("Number of Services Checked :" + str(total_test))
     print("Number of Services Check failed : " + str(failed_test))
-    print(failed)
+    print(json.dumps(failed, indent=4, sort_keys=True))
 else:
     print("Number of Services Checked :" + str(total_test))
     print("Number of Services Check failed : " + str(failed_test))
-    print(final)
+    print(json.dumps(final, indent=4, sort_keys=True))
 
 
 

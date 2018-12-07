@@ -58,6 +58,4 @@ def getServicesCheck(nodeName, clusterName, auth_values):
 
     parse = json.loads(response.text)
 
-    #result = item[]
-
     return parse
