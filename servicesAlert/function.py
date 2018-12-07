@@ -15,8 +15,6 @@ def getServicesAlert(nodeName, clusterName, auth_values):
 
     response = requests.request("GET", url, headers=headers, params=querystring, auth=auth_values)
 
-    response_json = json.loads(response.text)
+    result = json.loads(response.text)
 
-    alertStatus = response_json["items"]
-
-    return alertStatus
+    return result

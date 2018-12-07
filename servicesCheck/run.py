@@ -1,6 +1,6 @@
 #run
 from var import *
-from servicesCheck.funtion import *
+from servicesCheck.function import *
 
 serviceCheck = runServicesCheck(nodeName, clusterName, auth_values)
 
@@ -21,11 +21,11 @@ while batchStatus == "SCHEDULED":
 
     for item in parse["items"]:
 
+        total_test += 1
+
         if item["Requests"]["request_status"] == "COMPLETED" and item["Requests"]["request_context"] not in final:
 
             final.update({item["Requests"]["request_context"]: item["Requests"]["request_status"]})
-
-            total_test += 1
 
         elif item["Requests"]["request_status"] == "FAILED" and item["Requests"]["request_context"] not in final:
 
@@ -34,8 +34,6 @@ while batchStatus == "SCHEDULED":
             failed.update({item["Requests"]["request_context"]: item["Requests"]["request_status"]})
 
             failed_test += 1
-
-            total_test += 1
 
 if failed:
     print("Number of Services Checked :" + str(total_test))
