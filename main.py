@@ -1,5 +1,4 @@
 import os
-import subprocess
 
 # array with function to be launch at the end of the main section
 selector = {}

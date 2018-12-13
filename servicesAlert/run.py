@@ -9,14 +9,13 @@ nb_maintenance_test = 0
 nb_total_test = 0
 nb_good_test = 0
 
-serviceAlert = getServicesAlert(nodeName, clusterName, auth_values)
+serviceAlert = getServicesAlert(nodeName, port, clusterName, auth_values, https, verify)
 
 for item in serviceAlert["items"]:
 
     nb_total_test += 1
 
     if item["Alert"]["state"] != "OK":
-
 
         if item["Alert"]["maintenance_state"] == "OFF":
 

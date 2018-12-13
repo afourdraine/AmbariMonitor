@@ -2,17 +2,17 @@
 from var import *
 from servicesCheck.function import *
 
-serviceCheck = runServicesCheck(nodeName, clusterName, auth_values)
+serviceCheck = runServicesCheck(nodeName, port, clusterName, auth_values, https, verify)
 
 batchId = serviceCheck["resources"][0]["RequestSchedule"]["id"]
 batchId = str(batchId)
-batchStatus = getBachStatus(nodeName, clusterName, auth_values, batchId)
+batchStatus = getBachStatus(nodeName, port, clusterName, auth_values, batchId, https, verify)
 
 print(batchStatus)
 while batchStatus == "SCHEDULED":
-    batchStatus = getBachStatus(nodeName, clusterName, auth_values, batchId)
+    batchStatus = getBachStatus(nodeName, port, clusterName, auth_values, batchId, https, verify)
 
-    parse = getServicesCheck(nodeName, clusterName, auth_values)
+    parse = getServicesCheck(nodeName, port, clusterName, auth_values, https, verify)
 
     final = {}
     failed = {}
@@ -21,17 +21,20 @@ while batchStatus == "SCHEDULED":
 
     for item in parse["items"]:
 
-        total_test += 1
 
         if item["Requests"]["request_status"] == "COMPLETED" and item["Requests"]["request_context"] not in final:
 
             final.update({item["Requests"]["request_context"]: item["Requests"]["request_status"]})
+
+            total_test += 1
 
         elif item["Requests"]["request_status"] == "FAILED" and item["Requests"]["request_context"] not in final:
 
             final.update({item["Requests"]["request_context"]: item["Requests"]["request_status"]})
 
             failed.update({item["Requests"]["request_context"]: item["Requests"]["request_status"]})
+
+            total_test += 1
 
             failed_test += 1
 
