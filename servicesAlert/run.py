@@ -22,7 +22,8 @@ for item in serviceAlert["items"]:
 
             nb_failed_test += 1
 
-            failed.update({item["Alert"]["label"]: item["Alert"]["text"]})
+            failed.setdefault(item["Alert"]["label"], {})["severity :"] = item["Alert"]["state"]
+            failed.setdefault(item["Alert"]["label"], {})["message :"] = item["Alert"]["text"]
 
         else:
 
