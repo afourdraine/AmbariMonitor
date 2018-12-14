@@ -11,10 +11,10 @@ nodeName = "c154-node1"
 clusterName = "c154"
 
 # the port where Ambari is listening
-port = "8443"
+port = "8080"
 
 # if Ambari is configured in https put "y" if not, put "n"
-https = "y"
+https = "n"
 
 # by default verify is set to false. you can set to the CA_BUNDLE path to avoid warnings
 verify = False
