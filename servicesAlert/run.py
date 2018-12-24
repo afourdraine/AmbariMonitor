@@ -1,4 +1,7 @@
 # run
+import sys
+sys.path.append('.')
+
 from var import *
 from servicesAlert.function import *
 
