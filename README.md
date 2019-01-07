@@ -52,7 +52,7 @@ Process finished with exit code 0
 Download the repository or clone it :
 
 ```
-it clone https://github.com/afourdraine/AmbariMonitor.git
+git clone https://github.com/afourdraine/AmbariMonitor.git
 ```
 
 Make the python script executable :
